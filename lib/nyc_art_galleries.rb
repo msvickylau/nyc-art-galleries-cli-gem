@@ -1,5 +1,3 @@
-require "nyc_art_galleries/version"
-
-module NycArtGalleries
-  # Your code goes here...
-end
+# enviorment 
+require_relative "./nyc_art_galleries/version"
+require_relative './nyc_art_galleries/cli'
