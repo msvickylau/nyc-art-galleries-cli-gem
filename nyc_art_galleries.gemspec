@@ -6,12 +6,12 @@ require "nyc_art_galleries/version"
 Gem::Specification.new do |spec|
   spec.name          = "nyc_art_galleries"
   spec.version       = NycArtGalleries::VERSION
-  spec.authors       = ["TODO: Write your name"]
+  spec.authors       = ["Vicky Lau"]
   spec.email         = ["vlau.nyc@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.description   = %q{NYC Art Galleries.}
+  spec.summary       = %q{This Ruby Gem provides a CLI to view the 10 best galleries in each neighborhood of New York City as per Time Out - New York website.}
+  spec.homepage      = "https://github.com/vlaunyc/nyc-art-galleries-cli-gem."
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -28,9 +28,11 @@ Gem::Specification.new do |spec|
   end
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.require_paths = ["lib", "lib/nyc_art_galleries"]
 
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "nokogiri"
+  spec.add_development_dependency "pry"
 end
