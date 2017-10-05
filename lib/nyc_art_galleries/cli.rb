@@ -1,5 +1,4 @@
 #CLI Controller
-
 class NycArtGalleries::CLI
 def call
 		puts "- - - - - - - - - - - - - "
