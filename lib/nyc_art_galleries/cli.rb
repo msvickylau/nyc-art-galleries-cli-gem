@@ -1,14 +1,16 @@
 #CLI Controller
 class NycArtGalleries::CLI
-def call
+	def call
 		puts "- - - - - - - - - - - - - "
 		puts "Best Art Galleries in NYC:"
 		puts "- - - - - - - - - - - - - "
 		list_neighborhood
 		gallery_info
+		# see_all_galleries
+		neighborhood_info
 		thanks
 	end
-
+	
 	def list_neighborhood
 		puts "Which neighborhood would you like to visit?"
 		puts <<-DOC.gsub /^\s+/, ""
@@ -19,14 +21,15 @@ def call
 		    5. Midtown
 		    6. Soho, Tribeca, and the West Village
 		    7. Uptown
-	    DOC
-	    @@gallery = NycArtGalleries::Gallery.all
+		    DOC
+		end
 	end
 
 	def gallery_info
 		input = nil
 		while input != "exit"
-			puts "Enter the number of the neighborhood you'd like to view galleries for or type 'list' to see all neighborhoods, or type 'exit':"
+			puts "Enter the number of the neighborhood you'd like to view galleries for."
+			puts "OR type 'list' to see all neighborhoods again, 'info' for more infomation on neighborhoods, or type 'exit':"
 			input = gets.strip.downcase
 			case input 
 			when "1"
@@ -45,14 +48,20 @@ def call
 				puts "Galleries in Uptown"	
 			when "list"
 				list_neighborhood
+			when "info"
+				neighborhood_info	
 			else
-				puts "*Please enter 1-7, 'list' or 'exit'"
+				puts "Invalid entry, please try again."
 			end				
 		end
 	end
 
+	def neighborhood_info 
+		@info = NycArtGalleries::NeighborhoodInfo.all
+	end
+	
 	def thanks
 		puts "Thanks! Enjoy your gallery visit!"
 	end
-	
-end
+# end
+
