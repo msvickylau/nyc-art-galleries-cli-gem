@@ -6,9 +6,6 @@ class NycArtGalleries::CLI
 		puts "- - - - - - - - - - - - - "
 		list_neighborhood
 		gallery_info
-		# see_all_galleries
-		neighborhood_info
-		thanks
 	end
 	
 	def list_neighborhood
@@ -29,7 +26,9 @@ class NycArtGalleries::CLI
 		input = nil
 		while input != "exit"
 			puts "Enter the number of the neighborhood you'd like to view galleries for."
-			puts "OR type 'list' to see all neighborhoods again, 'info' for more infomation on neighborhoods, or type 'exit':"
+			puts "   type 'list' to see all neighborhoods again"
+			puts "   type 'info' for more infomation on neighborhoods"
+			puts "   type 'exit' to leave"
 			input = gets.strip.downcase
 			case input 
 			when "1"
@@ -49,7 +48,9 @@ class NycArtGalleries::CLI
 			when "list"
 				list_neighborhood
 			when "info"
-				neighborhood_info	
+				neighborhood_info
+			when "exit"
+				thanks
 			else
 				puts "Invalid entry, please try again."
 			end				
